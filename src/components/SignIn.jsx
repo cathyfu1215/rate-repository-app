@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import {  View,StyleSheet,Pressable} from 'react-native';
 import Text from './Text';
@@ -5,6 +6,10 @@ import theme from '../theme';
 import FormikTextInput from'./FormikTextInput';
 import { Formik} from 'formik';
 import * as yup from 'yup';
+import { useSignIn } from '../hooks/useSignIn'; 
+
+
+
 
 const validationSchema = yup.object().shape({
   username: yup
@@ -19,9 +24,6 @@ const validationSchema = yup.object().shape({
 const styles = StyleSheet.create({
   container: {
     backgroundColor:theme.colors.textPrimary,
-    
-    
-    
   },
   text:{
      color:theme.colors.textPrimary,
@@ -77,7 +79,6 @@ const styles = StyleSheet.create({
 
 const LoginForm=({onSubmit})=>{
   
-
   return(
     <View style={styles.signinFormContainter}>
 
@@ -97,10 +98,25 @@ const LoginForm=({onSubmit})=>{
   );
 };
 
-const SignIn = () => {
+const SignIn =  () => {
 
-const onSubmit=()=>{console.log(` signning in `);};
 
+const [signInFunction,result]=useSignIn(); 
+console.log('signin function:',signInFunction);
+
+
+ const onSubmit = async (values) => {
+   const { username, password } = values;
+
+   try {
+     const { data } = await signInFunction({ username, password });
+
+     console.log('should contain a token:',data);
+   } catch (e) {
+     console.log("error of onSubmit",e);
+   }
+ };
+ 
 
 const initialValues = {
   username: '',

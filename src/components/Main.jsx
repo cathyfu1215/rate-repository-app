@@ -13,6 +13,8 @@ const styles = StyleSheet.create({
     backgroundColor:theme.colors.darkBackground,
     flexGrow: 1,
     flexShrink: 1,
+    
+  
   },
 });
 
