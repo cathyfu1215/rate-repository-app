@@ -7,6 +7,8 @@ import FormikTextInput from'./FormikTextInput';
 import { Formik} from 'formik';
 import * as yup from 'yup';
 import { useSignIn } from '../hooks/useSignIn'; 
+import { useHistory } from "react-router-dom";
+
 
 
 
@@ -102,7 +104,9 @@ const SignIn =  () => {
 
 
 const [signInFunction,result]=useSignIn(); 
-console.log('signin function:',signInFunction);
+let history = useHistory();
+
+
 
 
  const onSubmit = async (values) => {
@@ -110,8 +114,9 @@ console.log('signin function:',signInFunction);
 
    try {
      const { data } = await signInFunction({ username, password });
-
-     console.log('should contain a token:',data);
+     console.log('logged in, token saved');
+     history.push("/");
+     
    } catch (e) {
      console.log("error of onSubmit",e);
    }
