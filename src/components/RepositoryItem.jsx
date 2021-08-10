@@ -78,7 +78,7 @@ const RepositoryItem=({item})=>{
     return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'k' : Math.sign(num)*Math.abs(num);
 }
 
-    return(<View style={styles.outsideContainer}>
+    return(<View testID="repositoryContainer" style={styles.outsideContainer}>
       
       <View  style={styles.flexContainerPhotoAndDes}>
       <View  style={styles.flexItemImage}>
@@ -92,9 +92,9 @@ const RepositoryItem=({item})=>{
 
 
       <View  style={styles.flexItemDes}>
-        <Text style={styles.bold}>{item.fullName}</Text>
-        <Text style={styles.description}>{item.description}</Text>
-        <Text style={styles.tag}>{item.language}</Text>
+        <Text testID="fullName" style={styles.bold}>{item.fullName}</Text>
+        <Text testID="description" style={styles.description}>{item.description}</Text>
+        <Text testID="language" style={styles.tag}>{item.language}</Text>
         </View>
 
         </View>
