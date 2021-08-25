@@ -25,3 +25,12 @@ query getCurrentUser{
 
  
 `;
+
+export const GET_SINGLE_REPOSITORY= gql`
+query SingleRepository($id:ID!){
+ repository(id:$id) {
+  id
+  fullName
+  url
+}
+}`;
