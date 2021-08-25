@@ -3,3 +3,23 @@ currently done part 1 : 10.1-10.2
                part 2 : 10.3-10.10
                part 3 : 10.11-10.16   (10.13 material has a typo)
                part 4 : 10.17-10.18
+
+
+
+about the problem I encountered in 10.19(files in the other branch):
+
+My useRepositories hook works as usual, fetching all repository items I need. But my useSingleRepository hook that calls useQuery to fetch a single repo returns a "true" for loading all the time, and the data is undefined.At the same time, useRepositories hook is affected and returns a "true" for loading, too.
+
+I googled this problem and people suggest using "no-cache " fetch policy. It does not work for me.
+below is my console log showing the status of two loading variables:
+
+all repo is loading? true
+all repo is loading? true
+all repo is loading? false //after this line, I called the function fetching singleRepo.
+
+all repo is loading? true
+the one from old repositories :undefined
+single repo is loading? true
+all repo is loading? true
+the one from old repositories: undefined
+single repo is loading? true
