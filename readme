@@ -6,7 +6,7 @@ currently done part 1 : 10.1-10.2
 
 
 
-about the problem I encountered in 10.19(files in the other branch):
+about the problem I encountered in 10.19(https://github.com/fcfc2021/rate-repository-app/tree/part10-loadingProblem-branch):
 
 My useRepositories hook works as usual, fetching all repository items I need. But my useSingleRepository hook that calls useQuery to fetch a single repo returns a "true" for loading all the time, and the data is undefined.At the same time, useRepositories hook is affected and returns a "true" for loading, too.
 
