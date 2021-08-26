@@ -2,8 +2,10 @@
 currently done part 1 : 10.1-10.2
                part 2 : 10.3-10.10
                part 3 : 10.11-10.16   (10.13 material has a typo)
-               part 4 : 10.17-10.19
+               part 4 : 10.17-10.21
+               
+  lesson from 10.19: Always check the schema. Always check api logs.
 
 
 
-about the problem I met at 10.19, it is about the schema. "id" should be an object , instead of a string.
+
