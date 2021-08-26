@@ -21,6 +21,9 @@ const styles = StyleSheet.create({
   signinFormContainter:{
     backgroundColor:theme.colors.commonBackgroundColor,
     marginTop:theme.formMargin.top,
+    marginLeft:theme.formMargin.top,
+    marginRight:theme.formMargin.top,
+    
     width:theme.signInForm.width,
     height:theme.signInForm.height,
     flexGrow:0,

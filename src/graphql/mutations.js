@@ -8,3 +8,16 @@ mutation LogIn ($credentials: AuthorizeInput){
   }
 `;
 
+export const CREATE_REVIEW=gql`
+mutation createReview($review:CreateReviewInput){
+  createReview(review:$review){
+    repository {
+      name
+      ownerName
+    }
+    rating
+    text
+    repositoryId
+  }
+}`;
+

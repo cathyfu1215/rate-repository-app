@@ -32,7 +32,7 @@ const theme = {
     right:10,
   },
     flex:{
-      padding:20,
+      padding:30,
     },
     logo:{
       width:65,

@@ -59,7 +59,8 @@ const AppBar = () => {
     <ScrollView horizontal style={styles.navitationContainer}>
    
     <Link to='/' ><Text style={styles.navigationText}>repositories</Text></Link>
-    <Link to='/SignIn'><Text style={styles.navigationText}>sign In </Text></Link>  
+    <Link to='/SignIn'><Text style={styles.navigationText}>sign In </Text></Link>
+      
     
     </ScrollView>
   </View>);}
@@ -72,6 +73,7 @@ const AppBar = () => {
         <ScrollView horizontal style={styles.navitationContainer}>
        
         <Link to='/' ><Text style={styles.navigationText}>repositories</Text></Link>
+        <Link to='/CreateReview'><Text style={styles.navigationText}>create a review </Text></Link>
         
         <Pressable onPress={async ()=>{
           await authStorage.removeAccessToken();

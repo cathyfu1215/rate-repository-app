@@ -32,5 +32,19 @@ query SingleRepository($id:ID!){
   id
   fullName
   url
+  reviews {
+    edges {
+      node {
+        id
+        text
+        rating
+        createdAt
+        user {
+          id
+          username
+        }
+      }
+    }
+  }
 }
 }`;

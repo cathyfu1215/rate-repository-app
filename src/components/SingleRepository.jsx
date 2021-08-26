@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { View, Image, StyleSheet, Pressable } from 'react-native';
+import { View, Image, StyleSheet, Pressable,FlatList } from 'react-native';
 import Text from './Text';
 import theme from '../theme';
 import Constants from 'expo-constants';
@@ -99,27 +99,47 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.commonBackgroundColor,
     flexDirection:'column'
   },
+  separator: {
+    height: 15,
+  },
+
+  roundScore:{
+    width:60,
+    height:60,
+    borderRadius:30,
+    padding:14,
+    backgroundColor:'lightblue',
+    
+    
+    
+ },
+ reviewContainer:{
+  display: 'flex',
+  flexDirection:'row',
+  paddingTop:Constants.statusBarHeight,
+  paddingBottom:Constants.statusBarHeight,
+  paddingRight:50,
+  marginTop:theme.tagMargin.top,
+  marginBottom:theme.tagMargin.buttom,
+  
+ },
+ reviewText:{
+  color:theme.colors.textPrimary,
+  paddingTop:theme.tagPadding.top,
+ },
 });
 
 
-
-
-
-const SingleRepository= ()=>{
+const RepositoryInfo=()=>{
 
   const id=useParams(id); //this id here is an object, not a string!
-  
   let singleRepositoryUrl;
-
 
 //below: get url of the selected single repository
 const targetRepository= useSingleRepository(id);
 
-
 if(targetRepository!==undefined){
- singleRepositoryUrl=targetRepository.url;
-
-}
+ singleRepositoryUrl=targetRepository.url;}
 
   
 //below: implement the push function
@@ -146,11 +166,9 @@ function kFormatter(num) {
   return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'k' : Math.sign(num)*Math.abs(num);
 }
 
-
-    return(
+  return(
     
-    <View  style={styles.outsideContainer}>
-      
+      <View>
       <View  style={styles.flexContainerPhotoAndDes}>
       <View  style={styles.flexItemImage}>
       <Image
@@ -210,10 +228,53 @@ function kFormatter(num) {
          </Pressable>
        </View>
 
+       </View>
+  );
+};
 
-        
-        
-      </View>);
+const ReviewItem = ({ review }) => {
+  return(
+    <View style={styles.reviewContainer}>
+
+      <View style={styles.roundScore}>
+      <Text>{review.rating}</Text>
+      </View>
+
+      <View style={styles.flexItemDes}>
+      <Text style={styles.bold}>{review.user.username}</Text>
+      <Text style={styles.description}>{review.createdAt}</Text>
+      <Text style={styles.reviewText}>{review.text}</Text>
+      </View>
+      
+    </View>
+  );
+};
+
+const SingleRepository= ()=>{
+
+  const id=useParams(id);
+  let reviewNodes;
+
+  const targetRepository= useSingleRepository(id);
+  
+
+  if(targetRepository){
+  reviewNodes=targetRepository.reviews.edges.map(edge=>edge.node);}
+
+  const ItemSeparator = () => <View style={styles.separator} />;
+
+    return(
+    
+    <View  style={styles.outsideContainer}>
+     
+     <FlatList
+      data={reviewNodes}
+      renderItem={({ item }) => <ReviewItem review={item} />}
+      keyExtractor={({ id }) => id}
+      ListHeaderComponent={() => <RepositoryInfo  />}
+      ItemSeparatorComponent={ItemSeparator}
+    />
+    </View>);
 };
 
 
