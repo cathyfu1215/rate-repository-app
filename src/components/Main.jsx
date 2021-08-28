@@ -7,6 +7,7 @@ import { Route, Switch, Redirect } from 'react-router-native';
 import SignIn from './SignIn';
 import SingleRepository from './SingleRepository';
 import CreateReview from './CreateReview';
+import CreateUser from './CreateUser';
 
 
 
@@ -25,6 +26,10 @@ const Main = () => {
     <View style={styles.container}>
      <AppBar/>
      <Switch>
+
+     <Route path="/CreateUser" exact>
+          <CreateUser/>
+        </Route>
 
      <Route path="/CreateReview" exact>
           <CreateReview/>

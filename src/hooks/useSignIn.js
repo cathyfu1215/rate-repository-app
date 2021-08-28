@@ -24,8 +24,10 @@ export const useSignIn = () => {
         });
 
         console.log('(useSignIn)token is :',data.authorize.accessToken);
+        
         await authStorage.setAccessToken(data.authorize.accessToken);
         apolloClient.resetStore();
+        
         return {data};
 
     };

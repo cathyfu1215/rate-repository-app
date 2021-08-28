@@ -50,7 +50,7 @@ const AppBar = () => {
 
    const {loading, error, data, refetch}=useQuery(GET_CURRENTUSER);
 
-   if((!loading)&&(!data.authorizedUser)){
+   if((!loading)&&(!data.authorizedUser)){ //below is the 'not logged in ' circumstance
 
   return (
   
@@ -60,7 +60,7 @@ const AppBar = () => {
    
     <Link to='/' ><Text style={styles.navigationText}>repositories</Text></Link>
     <Link to='/SignIn'><Text style={styles.navigationText}>sign In </Text></Link>
-      
+    <Link to='/CreateUser'><Text style={styles.navigationText}>sign up</Text></Link> 
     
     </ScrollView>
   </View>);}
