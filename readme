@@ -6,6 +6,11 @@ currently done part 1 : 10.1-10.2
                
   lesson from 10.19: Always check the schema. Always check api logs.
 
+currently stuck at 10.23 and 24. The problem is the useRepositories hook. 
+I can pass parameters to it, but in another place where I use the hook with no parameters it reports errors.
+had to review graphQL , read docs. 
+
+
 
 
 
