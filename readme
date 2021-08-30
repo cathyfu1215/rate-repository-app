@@ -2,13 +2,11 @@
 currently done part 1 : 10.1-10.2
                part 2 : 10.3-10.10
                part 3 : 10.11-10.16   (10.13 material has a typo)
-               part 4 : 10.17-10.22
+               part 4 : 10.17-10.24
                
-  lesson from 10.19: Always check the schema. Always check api logs.
+lesson from 10.19: Always check the schema. Always check api logs.
 
-currently stuck at 10.23 and 24. The problem is the useRepositories hook. 
-I can pass parameters to it, but in another place where I use the hook with no parameters it reports errors.
-had to review graphQL , read docs. 
+lesson from 10.23&24: useRepositories hook can take null parameters. So there is no need to use seperate queries/hooks(ends up with errors).
 
 
 
