@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {  StyleSheet, View } from 'react-native';
 import RepositoryList from './RepositoryList';
 import AppBar from './AppBar';
@@ -22,6 +22,12 @@ const styles = StyleSheet.create({
 });
 
 const Main = () => {
+
+  const [orderBy,setOrderBy]=useState('CREATED_AT');
+  const [orderDirection,setOrderDirection]=useState('DESC');
+  const [searchKeyword,setSearchKeyword]=useState('');
+
+
   return (
     <View style={styles.container}>
      <AppBar/>
@@ -40,12 +46,14 @@ const Main = () => {
         </Route>
 
         <Route path="/:id">
-          <SingleRepository />
+          <SingleRepository orderBy={orderBy} orderDirection={orderDirection} searchKeyword={searchKeyword} 
+          setOrderBy={setOrderBy} setOrderDirection={setOrderDirection} setSearchKeyword={setSearchKeyword}/>
         </Route>
 
 
         <Route path="/" exact>
-          <RepositoryList />
+          <RepositoryList orderBy={orderBy} orderDirection={orderDirection} searchKeyword={searchKeyword} 
+          setOrderBy={setOrderBy} setOrderDirection={setOrderDirection} setSearchKeyword={setSearchKeyword}/>
         </Route>
 
         <Redirect to="/" />  

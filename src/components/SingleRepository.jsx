@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
 });
 
 
-const RepositoryInfo=()=>{
+const RepositoryInfo=({orderBy,orderDirection,searchKeyword,setOrderBy,setOrderDirection,setSearchKeyword})=>{
 
   const id=useParams(id); //this id here is an object, not a string!
   let singleRepositoryUrl;
@@ -150,7 +150,7 @@ const goToGitHub=()=>{
 };
 
 //below:fetch the one single repo with infomation
-const repositories=useRepositories();
+const repositories=useRepositories({orderBy,orderDirection,searchKeyword});
 
 const repositoryNodes = repositories
     ? repositories.edges.map(edge => edge.node)
@@ -250,7 +250,7 @@ const ReviewItem = ({ review }) => {
   );
 };
 
-const SingleRepository= ()=>{
+const SingleRepository= ({orderBy,orderDirection,searchKeyword,setOrderBy,setOrderDirection,setSearchKeyword})=>{
 
   const id=useParams(id);
   let reviewNodes;
@@ -271,7 +271,8 @@ const SingleRepository= ()=>{
       data={reviewNodes}
       renderItem={({ item }) => <ReviewItem review={item} />}
       keyExtractor={({ id }) => id}
-      ListHeaderComponent={() => <RepositoryInfo  />}
+      ListHeaderComponent={() => <RepositoryInfo orderBy={orderBy} orderDirection={orderDirection} searchKeyword={searchKeyword} 
+      setOrderBy={setOrderBy} setOrderDirection={setOrderDirection} setSearchKeyword={setSearchKeyword} />}
       ItemSeparatorComponent={ItemSeparator}
     />
     </View>);
