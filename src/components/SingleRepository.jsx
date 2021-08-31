@@ -122,6 +122,8 @@ const styles = StyleSheet.create({
   marginTop:theme.tagMargin.top,
   marginBottom:theme.tagMargin.buttom,
   
+  
+  
  },
  reviewText:{
   color:theme.colors.textPrimary,

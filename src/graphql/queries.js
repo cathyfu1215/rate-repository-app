@@ -15,11 +15,29 @@ export const GET_REPOSITORIES = gql`
 `;
 
 
+
+
 export const GET_CURRENTUSER = gql`
-query getCurrentUser{
+query getCurrentUser {
   authorizedUser {
     id
     username
+    reviews {
+      totalCount
+      edges {
+        node {
+          id
+          rating
+          text
+          createdAt
+          repository {
+            id
+            fullName
+           
+          }
+        }
+      }
+    }
   }
 }
 

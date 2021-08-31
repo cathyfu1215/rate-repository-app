@@ -14,12 +14,13 @@ const styles = StyleSheet.create({
   formContainer:{
     backgroundColor:theme.colors.commonBackgroundColor,
     marginTop:theme.formMargin.top,
+    
     flexGrow:0,
   },
 
   inputField:{
-    paddingTop:10,
-    paddingBottom:10,
+    paddingTop:15,
+    paddingBottom:15,
 
   },
   submitButton:{

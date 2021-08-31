@@ -65,7 +65,8 @@ const AppBar = () => {
     </ScrollView>
   </View>);}
 
-  else{
+  else{ //if a user is logged in 
+
     return (
   
       <View style={styles.container}>
@@ -74,6 +75,7 @@ const AppBar = () => {
        
         <Link to='/' ><Text style={styles.navigationText}>repositories</Text></Link>
         <Link to='/CreateReview'><Text style={styles.navigationText}>create a review </Text></Link>
+        <Link to='/MyReviews'><Text style={styles.navigationText}>my reviews </Text></Link>
         
         <Pressable onPress={async ()=>{
           await authStorage.removeAccessToken();
